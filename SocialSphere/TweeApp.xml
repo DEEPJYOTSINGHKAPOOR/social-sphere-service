@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TweeApp</name>
+    </assembly>
+    <members>
+        <member name="M:TweeApp.Controllers.UserTweetController.CheckTokenValidity">
+            <summary>
+            Check Authorized or not.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TweeApp.Controllers.UserTweetController.CreateToken(TweeApp.Models.AuthenticationModel)">
+            <summary>
+            will return token
+            </summary>
+            <param name="model">Authentication Model-contains username and password</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
