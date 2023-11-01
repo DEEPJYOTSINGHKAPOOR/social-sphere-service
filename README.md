@@ -1,71 +1,95 @@
 
 # Social Sphere Web API
 
-Welcome to the Social Sphere Web API! This API serves as the backend for the Social Sphere application, providing features for user authentication, posting tweets, viewing and liking tweets, and commenting on tweets. It's built using .NET Core and uses MongoDB for data storage. User authentication is implemented using JWT Bearer tokens, and API versioning is incorporated for better management. Detailed documentation is available through Swagger.
+The Social Sphere Web API is a .NET Core-based backend service that powers the Social Sphere application. This API provides the functionality for user authentication, posting tweets, viewing and liking tweets, and commenting on tweets.
 
 ## Features
 
-1. **User Authentication**: Users can authenticate themselves securely using JWT Bearer tokens.
+1. **User Authentication**: Users can authenticate themselves to access the application's features securely.
 
-2. **Tweet Management**: Users can create and post tweets, view tweets, and like other users' tweets.
+2. **Tweet Management**: Users can create, view, like, and comment on tweets.
 
-3. **Commenting**: Users have the ability to comment on tweets, fostering engagement and discussion.
+3. **MongoDB Database**: MongoDB is used as the database to store user information and tweets. It offers flexibility and scalability for data storage.
 
-4. **MongoDB Integration**: The API leverages MongoDB for data storage, ensuring efficient and scalable data management.
+4. **JWT Bearer Authentication**: JSON Web Tokens (JWT) with Bearer Authentication is implemented to secure API endpoints, ensuring that only authorized users can access the application's features.
 
-5. **API Versioning**: API versioning is implemented for better control and maintenance as the project evolves.
+5. **API Versioning**: The API includes versioning to ensure backward compatibility as the application evolves over time.
 
-6. **Swagger Documentation**: Detailed API documentation is available through Swagger, making it easy for developers to understand and utilize the API endpoints.
+6. **Swagger Documentation**: Swagger is integrated to provide interactive documentation for the API, making it easy for developers to understand and utilize the available endpoints.
 
-## Installation and Usage
+7. **AWS Lambda Deployment**: The .NET Core Web API is deployed on AWS Lambda, offering scalability and cost-efficiency in hosting the application.
 
-To set up and use the Social Sphere Web API, follow these steps:
+## Getting Started
 
-1. **Prerequisites**: Ensure you have .NET Core and MongoDB installed on your system.
+### Prerequisites
 
-2. **Clone the Repository**: Clone this repository to your local machine.
+- [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) for development.
+- [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for running the application.
+- [MongoDB](https://www.mongodb.com/try/download/community) for the database.
+- AWS account and Lambda setup for deployment.
 
-   ```bash
-   git clone https://github.com/your-repo-url.git
+### Installation
+
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/your-username/social-sphere-api.git
    ```
 
-3. **Configuration**: Update the app settings to configure your MongoDB connection and JWT settings.
+2. Configure the MongoDB connection string in `appsettings.json`:
 
-4. **Build and Run**: Build the project and run it.
+   ```json
+   "ConnectionStrings": {
+     "MongoDB": "mongodb://localhost:27017/socialspheredb"
+   }
+   ```
 
-   ```bash
+3. Build and run the application:
+
+   ```shell
+   dotnet restore
    dotnet build
    dotnet run
    ```
 
-5. **API Documentation**: Access the Swagger documentation by navigating to `http://localhost:5000/swagger` in your web browser. Here, you can explore the available endpoints and make API requests.
+4. Access the API documentation through Swagger at `http://localhost:5000/swagger`.
 
-6. **Testing**: Utilize the API endpoints as needed for your application. Ensure you have proper authentication using JWT tokens.
+## Deployment
+
+To deploy the Social Sphere Web API to AWS Lambda:
+
+1. Build the project:
+
+   ```shell
+   dotnet publish -c Release
+   ```
+
+2. Create an AWS Lambda function and configure it to use the built package.
+
+3. Set up API Gateway to create a REST API for the Lambda function.
+
+4. Deploy the API to AWS.
 
 ## API Endpoints
 
-Here are some of the key API endpoints available:
+- `GET /api/tweets`: Retrieve a list of tweets.
+- `POST /api/tweets`: Create a new tweet.
+- `GET /api/tweets/{tweetId}`: Retrieve a specific tweet.
+- `PUT /api/tweets/{tweetId}`: Update a tweet.
+- `DELETE /api/tweets/{tweetId}`: Delete a tweet.
+- `POST /api/tweets/{tweetId}/like`: Like a tweet.
+- `POST /api/tweets/{tweetId}/comment`: Comment on a tweet.
 
-- `/api/authenticate`: Endpoint for user authentication.
-- `/api/tweets`: Endpoint for managing tweets (posting, viewing, and liking).
-- `/api/comments`: Endpoint for commenting on tweets.
-
-Please refer to the Swagger documentation for a complete list of available endpoints, request, and response examples.
+For more details, refer to the Swagger documentation.
 
 ## Contributing
 
-If you'd like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and submit a pull request.
+We welcome contributions to enhance the Social Sphere API. To contribute, please follow the [Contributing Guidelines](CONTRIBUTING.md).
 
 ## License
 
-This project is licensed under the [Your License Name] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-If you have any questions or need further assistance, feel free to contact us at [your email address].
-
-Happy coding!
+For any questions or support, please contact [Deepjyot](mailto:kapoordeepjyotsingh29@gmail.com).
